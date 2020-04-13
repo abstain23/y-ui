@@ -51,6 +51,7 @@
         <y-button type="primary" @click="dialogVisible = false">确定</y-button>
         </span>
       </y-dialog>
+      <y-button @click="dialogVisible = true">showDialog</y-button>
     </div>
   </div>
 </template>
@@ -61,7 +62,7 @@ export default {
   components: {},
   data() {
     return {
-      dialogVisible: true
+      dialogVisible: false
     }
   },
   methods: {

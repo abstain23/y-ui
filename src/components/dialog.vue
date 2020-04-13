@@ -1,50 +1,71 @@
 <template>
-  <div class="y-dialog-wrapper" v-if="visible">
-    <div class="y-dialog" :style="{ width, marginTop:top}">
-      <div class="y-dialog-header">
-        <slot name="title">
-          <span class="y-dialog-title">{{ title }}</span>
-        </slot>
-        <y-icon class="icon-close y-dialog-close-btn" @click="$emit('update:visible', false)"></y-icon>
-      </div>
-      <div class="y-dialog-body">
-        <slot></slot>
-      </div>
-      <div class="y-dialog-footer" v-if="$slots.footer">
-        <slot name="footer"></slot>
+  <transition name="dialog">
+    <div class="y-dialog-wrapper" v-if="visible" @click.self="handleClick">
+      <div class="y-dialog" :style="{ width, marginTop:top}">
+        <div class="y-dialog-header">
+          <slot name="title">
+            <span class="y-dialog-title">{{ title }}</span>
+          </slot>
+          <y-icon class="icon-close y-dialog-close-btn" @click.native="handleClick"></y-icon>
+        </div>
+        <div class="y-dialog-body">
+          <slot></slot>
+        </div>
+        <div class="y-dialog-footer" v-if="$slots.footer">
+          <slot name="footer"></slot>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
 export default {
-  name: 'yDialog',
+  name: "yDialog",
   props: {
     title: {
       type: String,
-      default: '提示'
+      default: "提示"
     },
     width: {
       type: [String, Number],
-      default: '50%'
+      default: "50%"
     },
     top: {
       type: String,
-      default: '15vh'
+      default: "15vh"
     },
     visible: {
       type: Boolean,
       default: false
     }
   },
-  created() {
-    
+  created() {},
+  methods: {
+    handleClick() {
+      this.$emit("update:visible", false);
+    }
   }
 };
 </script>
 
 <style lang="scss">
+.dialog-enter-active {
+  animation: show-dialog 0.4s;
+}
+.dialog-leave-active {
+  animation: show-dialog 0.4s reverse;
+}
+@keyframes show-dialog {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0%);
+  }
+}
 .y-dialog-wrapper {
   position: fixed;
   top: 0;
