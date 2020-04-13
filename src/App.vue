@@ -41,7 +41,7 @@
           <strong style="color:red">hh</strong>
         </div>
       </y-dialog> -->
-      <y-dialog width='50%' top='15vh' :visible.sync="dialogVisible">
+      <y-dialog width='50%' top='15vh' :visible.sync="dialogVisible" :before-close='beforeClose' @close='close' @open='open'>
         <template v-slot:title>
           <h1>提示信息</h1>
         </template>
@@ -62,12 +62,21 @@ export default {
   components: {},
   data() {
     return {
-      dialogVisible: false
+      dialogVisible: false,
     }
   },
   methods: {
     deleteClick(e) {
       console.log('deleteClick', e);
+    },
+    beforeClose() {
+      console.log('father before close')
+    },
+    close() {
+      console.log('father close')
+    },
+    open() {
+      console.log('open')
     }
   }
 };

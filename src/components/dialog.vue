@@ -38,12 +38,24 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    beforeClose: {
+      type: Function,
+      default() {
+        return ()=>{}
+      }
     }
   },
-  created() {},
+  watch: {
+    'visible': function(newVal) {
+      if(newVal) this.$emit('open')
+    }
+  },
   methods: {
     handleClick() {
-      this.$emit("update:visible", false);
+      this.beforeClose()
+      this.$emit("update:visible", false)
+      this.$emit('close')
     }
   }
 };
