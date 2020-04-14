@@ -4,6 +4,7 @@ import Button from './components/button.vue'
 import Icon from './components/icon.vue'
 import Dialog from './components/dialog.vue';
 import Input from './components/input.vue';
+import Switch from './components/switch.vue'
 
 import '@/assets/css/normalize.css'
 import '@/assets/css/font.css'
@@ -13,7 +14,7 @@ Vue.component(Button.name, Button)
 Vue.component(Icon.name, Icon)
 Vue.component(Dialog.name, Dialog)
 Vue.component(Input.name, Input)
-
+Vue.component(Switch.name, Switch)
 
 
 new Vue({
