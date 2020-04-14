@@ -17,7 +17,7 @@ describe('Icon', () => {
         name: 'add'
       }
     }).$mount()
-    expect(vm.$el.classList.contains('icon-add')).to.be.false
+    expect(vm.$el.classList.contains('icon-add')).to.be.true
   })
   
 })
