@@ -7,6 +7,7 @@
     {{modelValue}}
     <y-input  v-model="modelValue" clearable></y-input>
     <y-input  v-model="modelValue" show-password></y-input>
+    <y-input v-model="xxx" @clear='handleclear' clearable></y-input>
   </div>
 </template>
 
@@ -17,10 +18,14 @@ export default {
   data() {
     return {
       dialogVisible: false,
-      modelValue: '双向数据'
+      modelValue: '双向数据',
+      xxx: 'xxxx'
     }
   },
   methods: {
+    handleclear() {
+      console.log('clear')
+    },
     deleteClick(e) {
       console.log('deleteClick', e);
     },

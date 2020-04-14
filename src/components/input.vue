@@ -11,6 +11,8 @@
       :disabled="disabled"
       :maxlength="maxlength"
       :minlength="minlength"
+      @blur="$emit('blur', $event)"
+      @focus="$emit('focus', $event)"
       ref="input"
     />
     <span class="y-input-suffix" v-if="clearable || showPassword">
@@ -86,15 +88,18 @@ export default {
       this.$emit("input", e.target.value);
     },
     clear() {
-      this.$refs.input.focus()
+      this.$refs.input&&this.$refs.input.focus()
       this.$emit("input", "");
+      this.$emit('clear')
     },
     togglePassword() {
       this.passwordVisible = !this.passwordVisible;
       this.$nextTick(() => {
-        this.$refs.input.focus()
-        this.$refs.input.selectionStart = this.value.length
-        this.$refs.input.selectionEnd = this.value.length
+        if(this.$refs.input) {
+          this.$refs.input.focus()
+          this.$refs.input.selectionStart = this.value.length
+          this.$refs.input.selectionEnd = this.value.length
+        }
       })
     }
   }
