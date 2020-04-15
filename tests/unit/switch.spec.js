@@ -18,7 +18,7 @@ describe('Switch', () => {
     expect(wrapper.html()).to.exist
   })
 
-  it('value inactiveColor activeColor name', () => {
+  it('测试value inactiveColor activeColor name', () => {
     const div = document.createElement('div')
     document.body.appendChild(div)
     div.innerHTML = `
