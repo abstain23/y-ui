@@ -11,7 +11,7 @@
       :disabled="disabled"
       :maxlength="maxlength"
       :minlength="minlength"
-      @blur="$emit('blur', $event)"
+      @blur="handleBlur($event)"
       @focus="$emit('focus', $event)"
       ref="input"
     />
@@ -83,9 +83,14 @@ export default {
     //    }
     //  }
   },
+  inject:['eventsBus'],
   methods: {
     handleInput(e) {
       this.$emit("input", e.target.value);
+    },
+    handleBlur(e) {
+      this.$emit('blur', e)
+      this.eventsBus && this.eventsBus.$emit('validate')
     },
     clear() {
       this.$refs.input&&this.$refs.input.focus()
