@@ -83,11 +83,7 @@ export default {
     //    }
     //  }
   },
-  inject:{
-    eventsBus:{
-      default: null
-    }
-  },
+  inject:['eventsBus'],
   methods: {
     handleInput(e) {
       this.$emit("input", e.target.value);

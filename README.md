@@ -3,24 +3,11 @@
 [![Build Status](https://www.travis-ci.org/YangJ0605/y-ui.svg?branch=master)](https://www.travis-ci.org/YangJ0605/y-ui)
 
 ## 安装
+
 ```
-yarn install
+import 'y_web_ui/dist/y_ui.css'
+import yUi from 'y_web_ui'
+Vue.use(yUi)
+
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
