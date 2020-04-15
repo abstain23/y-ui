@@ -14,10 +14,8 @@
     "lib": "vue-cli-service build --target lib packages/index.js"
   },
   "dependencies": {
-    "async-validator": "^3.2.4",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
-    "y_web_ui": "^0.1.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",
