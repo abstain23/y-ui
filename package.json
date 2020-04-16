@@ -11,7 +11,9 @@
     "build": "vue-cli-service build",
     "test": "vue-cli-service build tests/unit/* --no-cache && vue-cli-service test:unit",
     "test-dev": "vue-cli-service test:unit",
-    "lib": "vue-cli-service build --target lib packages/index.js"
+    "lib": "vue-cli-service build --target lib packages/index.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -25,7 +27,8 @@
     "chai": "^4.1.2",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.4.1"
   },
   "browserslist": [
     "> 1%",
