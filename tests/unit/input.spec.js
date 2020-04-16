@@ -1,10 +1,11 @@
 import { mount } from '@vue/test-utils';
-import Vue from 'vue';
+import Vue from 'vue/dist/vue';
 import { expect } from 'chai';
 import Icon from '@/components/icon.vue';
 import Input from '@/components/input.vue';
 
 Vue.component(Icon.name, Icon);
+Vue.component(Input.name, Input)
 
 Vue.config.productionTip = false;
 
@@ -34,22 +35,32 @@ describe('Input', () => {
       expect(input.classList.contains('is-disabled')).to.be.true
       expect(input.value).to.eq('这是value')
       expect(vm.$el.querySelector('.y-input-suffix')).to.exist
+      expect(vm.$el.querySelector('.icon')).to.exist
     })
   })
 
-  describe('测试事件', () => {
-  //   const wrapper = mount(Input, {
-  //     propsData: {
-  //       value:'ccc'
-  //     }
-  //   })
-  //   const input = wrapper.find('input')
-  //   it('input', () => {
-  //     input.element.value = 100
-  //     input.trigger('input')
-  //     // console.log()
-  //     expect(wrapper.props().value).to.eq('1oo')
-  //   })
+  describe('测试事件',  () => {
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    div.innerHTML = `
+    <y-input v-model="model" type='text' ref='input'></y-input>
+      `
+      const vm = new Vue({
+        el: div,
+        data: {
+         model:'你好'
+        },
+        methods: {
+          
+        }
+      })
+      it('input事件', () => {
+        vm.$refs.input.handleInput({target:{value:'hello'}})
+        expect(vm.model).to.eq('hello')
+      })
+      it('clear事件', () => {
+        vm.$refs.input.clear()
+        expect(vm.model).to.eq('')
+      })
   })
-    
 });

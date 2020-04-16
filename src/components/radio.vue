@@ -37,7 +37,7 @@ export default {
   computed: {
     modelValue:{
       get() {
-        console.log(this.inGroup)
+        // console.log(this.inGroup)
         return this.inGroup ? this.radioGroup.value : this.value
       },
       set(value) {

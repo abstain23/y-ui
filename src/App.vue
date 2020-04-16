@@ -19,7 +19,12 @@
      <y-checkbox  label='水果'></y-checkbox>
      <y-checkbox  label='蔬菜'></y-checkbox>
   </y-checkbox-group> -->
-
+  <y-radio-group v-model="gender">
+      <y-radio label='0'></y-radio>
+      <y-radio label='1'></y-radio>
+    </y-radio-group>
+    <y-radio label='1' v-model="gender"></y-radio>
+    <y-checkbox v-model="active">水果</y-checkbox>
   <y-form  :model='model' :rules='rules'>
     <y-form-item label='用户名：' prop='username'>
       <y-input v-model="model.username"></y-input>
