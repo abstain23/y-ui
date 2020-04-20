@@ -26,6 +26,14 @@
     <y-button type="warning" round>警告按钮</y-button>
     <y-button type="danger" round >危险按钮</y-button>
     <pre><code>{{roundUsing}}</code></pre>
+
+    <pre >
+    
+        <code>
+          {{test}}
+        </code>
+
+    </pre>
     <hr />
   </div>
 </template>
@@ -46,9 +54,7 @@ export default {
         <y-button type="info">主要按钮</y-button>
         <y-button type="warning">警告按钮</y-button>
         <y-button type="danger">危险按钮</y-button>
-      `
-        .replace(/\t+| +/g, '')
-        .trim(),
+      `.replace(/\t+| +/g, ' '),
       disabledUsing: `
         <y-button plain disabled>默认按钮</y-button>
         <y-button type="success" plain disabled>成功按钮</y-button>
@@ -56,9 +62,7 @@ export default {
         <y-button type="info" plain disabled>主要按钮</y-button>
         <y-button type="warning" plain disabled>警告按钮</y-button>
         <y-button type="danger" plain disabled>危险按钮</y-button>
-      `
-        .replace(/\t+| +/g, '')
-        .trim(),
+      `.trim(),
       roundUsing: `
          <y-button round>默认按钮</y-button>
         <y-button type="success" round>成功按钮</y-button>
@@ -69,6 +73,7 @@ export default {
       `
         .replace(/\t+| +/g, '')
         .trim(),
+        test: '<y-button type="danger" round >危险按钮</y-button>'
     };
   },
 };

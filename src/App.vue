@@ -33,13 +33,36 @@
       <y-input v-model="model.password" type='password'></y-input>
     </y-form-item>
   </y-form>
+  <test></test>
+  <y-button @click="toast">Toast</y-button>
   </div>
 </template>
 
 <script>
+import Test from './test'
+import 'element-ui/lib/theme-chalk/index.css'
+import { Message } from 'element-ui'
+
 export default {
   name: 'App',
-  components: {},
+  components: {Test},
+  beforeCreate() {
+    console.log(this.gender)
+    console.log('father beforeCreated')
+  },
+  created() {
+    console.log(this.gender)
+    console.log('father created')
+  },
+  beforeMount() {
+    console.log(this.gender)
+    console.log('father beforeMount')
+  },
+  mounted() {
+    console.log(this.gender)
+    console.log('father mounted')
+    Message({message:'elemessage',duration:0, type:'error'})
+  },
   data() {
     return {
       active: 0,
@@ -58,8 +81,10 @@ export default {
     }
   },
   methods: {
-    xx() {
-      
+    toast() {
+      this.$toast('这是toast',{position:'bottom',autoClose:false, type:'error'})
+
+      // this.$toast('这是toast',{position:'bottom',autoClose:false, closeButton:null})
     }
   }
 };
